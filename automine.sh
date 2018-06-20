@@ -25,7 +25,8 @@ do
 ################# BELOW HERE IS AUTOSWITCHING ON MININGPOOLHUB, MUST SETUP DEFAULT ACCOUNT JOB FOR AUTOSWITCHING ON MININGPOOLHUB ACCOUNT TO USE THESE ALGORITHMS OR LESS,
 #I RECOMMEND NVIDIA - Cryptonight-Monero, Ethash, Equihash, Lyra2RE2, Myriad-Groestl, Skein
         ~/bminer/bminer -uri stratum+ssl://"$mphusername".`uname -n`@us-east.equihash-hub.miningpoolhub.com:12023 -max-network-failures=0 -watchdog=false
-	~/bminer/bminer -uri ethstratum://jellofox.`uname -n`:x@us-east.ethash-hub.miningpoolhub.com:12020 -max-network-failures=0 -watchdog=false
+	~/bminer/bminer -uri ethstratum://"$mphusername".`uname -n`:x@us-east.ethash-hub.miningpoolhub.com:12020 -max-network-failures=0 
+-watchdog=false
 #       ccminer -q -r 0 -a equihash -o 
 stratum+tcp://us-east.equihash-hub.miningpoolhub.com:12023 -u "$mphusername".`uname -n` -p x
         ccminer -q -r 0 -a groestl -o stratum+tcp://hub.miningpoolhub.com:12004 -u "$mphusername".`uname -n` -p x
