@@ -1,0 +1,24 @@
+#Service to autostart the mining script
+#Place this with sudo nano /etc/systemd/system/runminer.service
+#ENABLE THIS SERVICE WITH sudo systemctl enable runminer.service
+#START WITH sudo service runminer start
+#STOP WITH sudo service runminer stop
+#View mining with screen -r
+[Unit]
+Description=automine
+After=network.target
+
+[Service]
+#MODIFY USER TO YOUR USER
+User=mining 
+#MODIFY GROUP TO YOUR GROUP
+Group=mining
+WorkingDirectory=~
+Type=forking
+#INSTALL SCREEN AND MODIFY AUTOMINE SCRIPT PATH
+ExecStart=/usr/bin/screen -d -m -S miner /home/mining/automine.sh
+ExecStop=/usr/bin/killall -w -s 2 miner
+
+[Install]
+WantedBy=multi-user.target
+
