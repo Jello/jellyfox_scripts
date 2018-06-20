@@ -8,6 +8,14 @@ name=`uname -n`
 mphusername='' #FILL THIS WITH YOUR MININGPOOLHUB USERNAME
 ##################### UPDATE IT
         cd ~/xmr-stak/build/bin/
+#####UNCOMMENT TO CPU MINE
+##### NEED TO RUN xmr-stak --noNVIDIA once from the the bin directory to setup
+##### Pool address for nicehash is cryptonightv7.usa.nicehash.com:3363
+##### Wallet address is <bitcoinaddress>.rigname
+##### Pool password is x, use_nicehash is true
+##### Pool address for mph is us-east.cryptonight-hub.miningpoolhub.com:17024
+##### Wallet address is mphusername.rigname
+##### Pool password is x, use_nicehash is false, use_tls is true
 #        nohup ~/xmr-stak/build/bin/xmr-stak --noNVIDIA >& /dev/null & #####UNCOMMENT THIS TO CPU MINE
         ~/watchdog.sh >& /dev/null &  ######MUST SET /sbin/reboot to usable by current user (chmod 777 it will work, or set permissions for current user / group with sudo chmod u+s /sbin/reboot 
 while :
