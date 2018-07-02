@@ -32,11 +32,11 @@ while [ "$i" -lt $gpunum ];  do
 ########MODIFY THE FOLLOWING TO SET CARDS TO MINIMUM POWER LIMIT
 #       newpowerlimit=`nvidia-smi --query-gpu=index,power.min_limit --format=csv -i $i | sed -n '1!p' | cut -f 2 -d " " | cut -f 1 -d .`
 ###### Alternative, for ethereum mining I found the following power levels give maximum performance at the minimum wattage:
-#### Titan XP - 188W
-#### 1080ti - 160W
-#### 1080 - 108W
-#### 1070 - 90W
-#### 1060 - 80W
+#### Titan XP - 188W (55Mh/s, 3.42W/Mh) w/ OhGodAnEthLargementPill
+#### 1080ti - 160W (44-48Mh/s, 3.63W/Mh - 3.33W/Mh) -- w/ OhGodAnEthLargementPill - some 1080tis only do 40Mh/s and need memory underclocked -1000Mhz to hit 42-43Mh/s
+#### 1080 - 108W (30Mh/s, 3.6W/Mh) w/ OhGodAnEthLargementPill - hit 35Mh/s with +1000Mhz memory overclock
+#### 1070 - 90W  (27Mh/s, 3.33W/Mh)
+#### 1060 - 80W  (20Mh/s, 4W/Mh) - hit 22-23Mh/s with +1000Mhz memory overclock
         nvidia-smi -i $i -pl $newpowerlimit
         i=$(( i + 1 ))
 done
